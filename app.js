@@ -8,6 +8,7 @@ require("dotenv/config");
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
+
 // path for different page and database connections
 const routeCourses = require("./routes/courses");
 const routeUsers = require("./routes/userInfo");
