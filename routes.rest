@@ -1,0 +1,10 @@
+// Testing purpose for REST API
+GET http://localhost:5000/api/courses
+###
+
+Post http://localhost:5000/api/courses
+
+{
+    "course":"class",
+    "tag":"1"
+}
