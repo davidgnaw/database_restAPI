@@ -17,22 +17,20 @@ const GallerySchema = mongoose.Schema({
     media:{
         type: String,
     },
-    comments:{
-        "content":{
-            type: String,
-        },
-        "userID":{
-            type: Number,
-        },
-        "likeReceived":{
-            type: Boolean,
-            default: false
-        },
-        creationDate:{
-            type: Date,
-            default : Date.now
-        },
-    }
+    commentsContent:{
+        type: String,
+    },
+    commentsuserID:{
+        type: Number,
+    },
+    commentsLikerecived:{
+        type: String,
+    },
+    
+    commentsCreationdate:{
+        type: Date,
+        default : Date.now
+    },
 });
 
 module.exports = mongoose.model('gallery', GallerySchema);

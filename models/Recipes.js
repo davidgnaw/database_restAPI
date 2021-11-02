@@ -16,36 +16,30 @@ const recipeSchema = mongoose.Schema({
     instruction:{
         type: String,
     },
-    ingredients:{
-        name:{
-            type: String,
-            default : "Unspecified"
-        },
-        supplierLink:{
-            type: String,
-            default : "Unspecified"
-        },
-        subsititution:{
-            type: String,
-            default : "none"
-        },
+    ingredientsName:{
+        type: String,
+    },
+    ingredientsSupplierLink:{
+        type: String,
+    },
+    ingredientsSubsititution:{
+        type: String,
     },
     mediaLink:{
         type:String,
     },
-    createdBy:{
-        type:Number
+    commentsContent:{
+        type: String
     },
-    comments:{
-        content:{
-            type: String
-        },
-        userID:{
-            type: Number        },
-        rating:{
-            type: Number,
-            default:0
-        },
+    commentsUserID:{
+        type: Number
+    },
+    rating:{
+        type: Number,
+        default:0
+    },
+    commentCreatedBy:{
+        type: Number
     }
 });
 

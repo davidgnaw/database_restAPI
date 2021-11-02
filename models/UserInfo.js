@@ -24,24 +24,24 @@ const userInfoSchema = mongoose.Schema({
         type:String,
         required : true
     },
-    postRelated:{
-        "recipeCreation":{
-            type: Number,
-            default:0
-        },
-        "commentReceived":{
-            type: Number,
-            default:0
-        },
-        "likeReceived":{
-            type: Number,
-            default:0
-        },
-        commentPublished:{
-            type: Number,
-            default:0
-        }
-    }
+    recipeCreation:{
+        type:Number,
+        default : 0
+    },
+    commentReceived:{
+        type:Number,
+        default : 0
+
+    },
+    likeReceived:{
+        type:Number,
+        default : 0
+
+    },
+    commentPublished:{
+        type:Number,
+        default : 0
+    },
 });
 
 module.exports = mongoose.model('userInfo', userInfoSchema);

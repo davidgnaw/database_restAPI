@@ -36,7 +36,11 @@ router.post("/", async(req,res) => {
       postID: req.body.postID,
       userID:req.body.userID,
       content:req.body.content,
-      media:req.body.media
+      media:req.body.media,
+      commentsContent:req.body.commentsContent,
+      commentsuserID:req.body.commentsuserID,
+      commentsLikerecived:req.body.commentsLikerecived,
+      commentsCreationdate:req.body.commentsCreationdate
   });
   try{
       const savedPost = await thePost.save();
@@ -61,7 +65,8 @@ router.patch("/:recipeID", async (req, res) => {
           $set: { 
             content: req.body.content,
             media: req.body.media,
-            comments: req.body.comments
+            commentsContent: req.body.commentsContent,
+            commentsLikerecived: req.body.commentsLikerecived,
           }
         }
       );

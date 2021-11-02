@@ -34,7 +34,13 @@ router.post("/", async(req,res) => {
     const myuser = new UserInfo({
         userID: req.body.userID,
         userName:req.body.userName,
-        password:req.body.password
+        password:req.body.password,
+        level:req.body.level,
+        email:req.body.email,
+        recipeCreation:req.body.recipeCreation,
+        commentReceived:req.body.commentReceived,
+        likeReceived:req.body.likeReceived,
+        commentPublished:req.body.commentPublished
     });
     try{
         const savedUsers = await myuser.save();
@@ -60,7 +66,10 @@ router.patch("/:userID", async (req, res) => {
             level: req.body.level,
             email: req.body.email,
             password: req.body.password,
-            postRelated: req.body.postRelated
+            recipeCreation: req.body.recipeCreation,
+            commentReceived: req.body.commentReceived,
+            likeReceived: req.body.likeReceived,
+            commentPublished: req.body.commentPublished,
           }
         }
       );
