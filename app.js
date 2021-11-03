@@ -14,6 +14,9 @@ const routeCourses = require("./routes/courses");
 const routeUsers = require("./routes/userInfo");
 const routeGallery = require("./routes/gallery");
 const routeRecipes = require("./routes/recipes");
+// const routeVerification = require("./routes/routes");
+
+
 const Recipes = require("./models/Recipes");
 
 // Middleware
@@ -22,6 +25,11 @@ app.use("/api/courses", routeCourses);
 app.use("/api/userInfo", routeUsers);
 app.use("/api/gallery", routeGallery);
 app.use("/api/recipes", routeRecipes);
+// app.use("/api/verification", routeVerification);
+app.use('/api/verify', require('./routes/routes.js'));
+
+
+
 
 // homepage
 app.get("/", (req,res) => {

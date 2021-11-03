@@ -1,13 +1,18 @@
 const mongoose = require("mongoose");
+const jwt = require('jsonwebtoken');
+
+
 
 const userInfoSchema = mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
+
     userID: {
         type: Number,
-        required:true
+        //required:true
     },
     userName:{
         type: String,
-        required:true
+        //required:true
     },
     creationDate:{
         type: Date,
@@ -20,9 +25,14 @@ const userInfoSchema = mongoose.Schema({
     email:{
         type: String,
     },
+    verified:{
+        type: Boolean,
+        //required: true,
+        default: false
+    },
     password:{
         type:String,
-        required : true
+        //required : true
     },
     recipeCreation:{
         type:Number,
@@ -43,5 +53,15 @@ const userInfoSchema = mongoose.Schema({
         default : 0
     },
 });
+
+userInfoSchema.methods.generateVerificationToken = function(){
+    const user = this;
+    const verificationToken = jwt.sign(
+        { ID: user._id },
+        process.env.USER_VERIFICATION_TOKEN_SECRET,
+        { expiresIn: "7d"}
+    );
+    return verificationToken;
+}
 
 module.exports = mongoose.model('userInfo', userInfoSchema);
