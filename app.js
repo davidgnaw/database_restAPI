@@ -14,6 +14,8 @@ const routeCourses = require("./routes/courses");
 const routeUsers = require("./routes/userInfo");
 const routeGallery = require("./routes/gallery");
 const routeRecipes = require("./routes/recipes");
+const routeSubstitute = require("./routes/substitute");
+
 // const routeVerification = require("./routes/routes");
 
 
@@ -25,6 +27,8 @@ app.use("/api/courses", routeCourses);
 app.use("/api/userInfo", routeUsers);
 app.use("/api/gallery", routeGallery);
 app.use("/api/recipes", routeRecipes);
+app.use("/api/substitution", routeSubstitute);
+
 // app.use("/api/verification", routeVerification);
 app.use('/api/verify', require('./routes/routes.js'));
 

@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 
-const UserInfo = require("../models/Recipes");
+const UserInfo = require("../models/Substitute");
 
 // get all the recipes
 router.get("/",async(req,res)=>{
@@ -33,23 +33,9 @@ router.get("/:recipeID", async (req,res) => {
 // post a recipes
 router.post("/", async(req,res) => {
     const myuser = new UserInfo({
-        recipeID: req.body.recipeID,
-        name:req.body.name,
-        instruction:req.body.instruction,
-        ingredientsName:req.body.ingredientsName,
-        difficulty:req.body.difficulty,
-
-
-        ingredientsSupplierLink:req.body.ingredientsSupplierLink,
-        ingredientsSubsititution:req.body.ingredientsSubsititution,
-
-        mediaLink:req.body.mediaLink,
-        createdBy:req.body.createdBy,
-        commentsContent:req.body.commentsContent,
-        commentsUserID:req.body.commentsUserID,
-        rating:req.body.rating,
-        createdBy:req.body.createdBy,
-
+        ingredient: req.body.ingredient,
+        substitute: req.body.substitute,
+        substitute_URL: req.body.substitute_URL
     });
     try{
         const savedUsers = await myuser.save();
@@ -71,21 +57,9 @@ router.patch("/:recipeID", async (req, res) => {
         { _id: id },
         {
           $set: { 
-            recipeID: req.body.recipeID,
-            name:req.body.name,
-            instruction:req.body.instruction,
-            ingredientsName:req.body.ingredientsName,
-            difficulty:req.body.difficulty,
-
-            ingredientsSupplierLink:req.body.ingredientsSupplierLink,
-            ingredientsSubsititution:req.body.ingredientsSubsititution,
-    
-            mediaLink:req.body.mediaLink,
-            createdBy:req.body.createdBy,
-            commentsContent:req.body.commentsContent,
-            commentsUserID:req.body.commentsUserID,
-            rating:req.body.rating,
-            commentCreatedBy:req.body.commentCreatedBy
+            ingredient: req.body.ingredient,
+            substitute: req.body.substitute,
+            substitute_URL: req.body.substitute_URL
             }
         }
       );
