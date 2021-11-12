@@ -34,6 +34,18 @@ const userInfoSchema = mongoose.Schema({
         type:String,
         //required : true
     },
+    discription:{
+        type:String,
+        //required : true
+    },
+    userPicture:{
+        type:String,
+        //required : true
+    },
+    userPost:{
+        type:String,
+        //required : true
+    },
     recipeCreation:{
         type:Number,
         default : 0
