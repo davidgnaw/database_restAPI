@@ -35,6 +35,7 @@ router.post("/", async(req,res) => {
   const thePost = new GalleryInfo({
       postID: req.body.postID,
       userID:req.body.userID,
+      likerecived: req.body.likerecived,
       content:req.body.content,
       media:req.body.media,
       commentsContent:req.body.commentsContent,
@@ -65,6 +66,7 @@ router.patch("/:recipeID", async (req, res) => {
           $set: { 
             content: req.body.content,
             media: req.body.media,
+            likerecived: req.body.likerecived,
             commentsContent: req.body.commentsContent,
             commentsLikerecived: req.body.commentsLikerecived,
           }

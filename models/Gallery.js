@@ -4,6 +4,10 @@ const GallerySchema = mongoose.Schema({
         type: Number,
         required:true
     },
+    likerecived:{
+        type: Number,
+    },
+    
     userID:{
         type: Number
         },
@@ -24,7 +28,7 @@ const GallerySchema = mongoose.Schema({
         type: Number,
     },
     commentsLikerecived:{
-        type: String,
+        type: Number,
     },
     
     commentsCreationdate:{

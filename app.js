@@ -38,9 +38,6 @@ app.use("/api/substitution", routeSubstitute);
 // app.use("/api/verification", routeVerification);
 app.use('/api/verify', require('./routes/routes.js'));
 
-
-
-
 // homepage
 //app.get("/", (req,res) => {
   //  res.send("we are on 5000 homepage")
@@ -52,7 +49,9 @@ mongoose.connect(
      process.env.DB_CONNECTION, 
     {useNewUrlParser:true},
      () =>console.log("database is conncted")    
-);
+)
+
+// variable for connecting to mongoose dataset for maintain login status
 var conn = mongoose.connection;
 
 conn.on('connected',() =>{
@@ -63,6 +62,7 @@ conn.on('error',(err)=>{
     if(err)
     console.log(err)
 });
+
 
 app.use(session({
     secret: 'ssshhhhh',
